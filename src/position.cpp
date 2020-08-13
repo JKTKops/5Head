@@ -29,7 +29,7 @@ namespace {
     }
 }
 
-// operator<<(Position) gives an ASCII rep. of a single 2D board.
+// operator<<(Board2D) gives an ASCII rep. of a single 2D board.
 // Laying out an image of the entire position is rather complex,
 // so we do it timeline-by-timeline, taking one line of text from
 // each board at a time. Newlines are separated by LF, not CRLF.
@@ -37,7 +37,7 @@ namespace {
 // timeline in order to lay them out (!!) but performance here is not
 // especially a concern. This is for debugging.
 //
-// Each line contains the same number of columns. Each board contains
+// Each line contains the same number of columns. Each (8x8) board contains
 // 18 lines. An initial newline is not printed, but a final one is.
 std::ostream& operator<<(std::ostream& os, const Board2D& pos) {
     char width = pos.board_width();
@@ -158,7 +158,7 @@ std::ostream& operator<<(std::ostream& os, const Timeline& line) {
 
             str_line = std::string(spaceIndent, ' ') + str_line;
 
-            
+            // TODO: active/inactive ('I'/'A'?)
         }
 
         lines.push_back(str_line);
